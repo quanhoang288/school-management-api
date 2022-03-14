@@ -1,7 +1,6 @@
 package com.hust.schoolmanagementapi.repository;
 
-import com.hust.schoolmanagementapi.service.LecturerService;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.hust.schoolmanagementapi.entity.Lecturer;
 
-public interface LecturerRepository extends JpaRepository<LecturerService, Long> {
+public interface LecturerRepository extends UserRepository<Lecturer> {
 }

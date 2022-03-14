@@ -21,6 +21,18 @@ public class SubjectClass {
     private String name;
     private String status;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+        name = "class_registrations",
+        joinColumns = { @JoinColumn(name = "subject_class_id") },
+        inverseJoinColumns = { @JoinColumn(name = "student_id") }
+    )
+    private List<Student> registeredStudents;
+
+    @ManyToMany(mappedBy = "subjectClasses")
+    private List<Lecturer> lecturers;
+
+
+    @OneToMany(mappedBy = "subjectClass")
     private List<SubjectClassSchedule> subjectClassSchedules;
 }

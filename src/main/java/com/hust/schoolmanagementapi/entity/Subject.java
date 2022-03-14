@@ -18,6 +18,7 @@ public class Subject {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "department_id")
     private Department department;
 
     private Double coeff;

@@ -1,7 +1,7 @@
 package com.hust.schoolmanagementapi.repository;
 
-import com.hust.schoolmanagementapi.service.AdminService;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.hust.schoolmanagementapi.entity.Admin;
 
-public interface AdminRepository extends JpaRepository<AdminService, Long> {
+
+public interface AdminRepository extends UserRepository<Admin> {
 }

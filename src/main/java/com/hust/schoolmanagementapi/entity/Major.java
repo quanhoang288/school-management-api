@@ -3,6 +3,7 @@ package com.hust.schoolmanagementapi.entity;
 import lombok.Builder;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Builder
@@ -17,6 +18,10 @@ public class Major {
 
     private String name;
 
+    @OneToMany(mappedBy = "major")
+    private List<Classes> classes;
+
     @ManyToOne
+    @JoinColumn(name = "department_id")
     private Department department;
 }

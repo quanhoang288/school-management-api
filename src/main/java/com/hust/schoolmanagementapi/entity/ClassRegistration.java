@@ -13,9 +13,11 @@ public class ClassRegistration {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "subject_class_id")
     private SubjectClass subjectClass;
 
     @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student student;
 
     private String status;

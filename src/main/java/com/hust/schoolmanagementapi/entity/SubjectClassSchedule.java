@@ -13,6 +13,7 @@ public class SubjectClassSchedule {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "subject_class_id")
     private SubjectClass subjectClass;
 
     @ManyToOne

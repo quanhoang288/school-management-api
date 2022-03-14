@@ -2,10 +2,8 @@ package com.hust.schoolmanagementapi.entity;
 
 import lombok.Builder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Builder
@@ -15,7 +13,11 @@ public class Student extends User{
     private String code;
 
     @ManyToOne
+    @JoinColumn(name = "class_id")
     private Classes studentClass;
+
+    @ManyToMany(mappedBy = "registeredStudents")
+    private List<SubjectClass> registeredClasses;
 
     private Double cpa;
 }

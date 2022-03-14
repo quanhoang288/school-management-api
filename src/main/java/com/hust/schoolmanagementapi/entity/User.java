@@ -1,17 +1,15 @@
 package com.hust.schoolmanagementapi.entity;
 
-import lombok.Builder;
 
 import javax.persistence.*;
 
 @Entity
-@Builder
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
 
     @Column(unique = true)
     private String loginId;
