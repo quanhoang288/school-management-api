@@ -1,18 +1,20 @@
 package com.hust.schoolmanagementapi.entity;
 
+import com.hust.schoolmanagementapi.entity.enums.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Builder
+@Table(name = "roles")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "majors")
-public class Major {
+@Builder
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,12 +22,7 @@ public class Major {
     @Column(unique = true)
     private String code;
 
-    private String name;
-
-    @OneToMany(mappedBy = "major")
-    private List<Classes> classes;
-
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
+    @Enumerated(value = EnumType.STRING)
+    @Column(length = 30)
+    private RoleType name;
 }

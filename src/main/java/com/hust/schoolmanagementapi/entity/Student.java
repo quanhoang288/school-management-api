@@ -1,12 +1,17 @@
 package com.hust.schoolmanagementapi.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Builder
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "students")
 public class Student extends User{
     @Column(unique = true)

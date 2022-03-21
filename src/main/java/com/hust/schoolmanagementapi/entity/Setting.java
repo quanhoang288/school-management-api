@@ -1,11 +1,15 @@
 package com.hust.schoolmanagementapi.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "settings")
 public class Setting {
     @Id

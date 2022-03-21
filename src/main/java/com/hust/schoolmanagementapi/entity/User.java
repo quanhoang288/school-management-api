@@ -1,27 +1,45 @@
 package com.hust.schoolmanagementapi.entity;
 
 
+import com.hust.schoolmanagementapi.listener.UserListener;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
+@SuperBuilder
+@Data
+@NoArgsConstructor
+@EntityListeners(UserListener.class)
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    protected int id;
 
-    @Column(unique = true)
-    private String loginId;
+    @Column(unique = true, name = "login_id")
+    protected String loginId;
 
-    private String password;
+    protected String password;
 
-    private String fullName;
+    protected String fullName;
 
-    private String dateOfBirth;
+    protected String dateOfBirth;
 
-    private String email;
+    protected String email;
 
-    private String address;
+    protected String address;
 
+    @ManyToMany
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    protected List<Role> roles;
 }

@@ -1,14 +1,16 @@
 package com.hust.schoolmanagementapi.entity;
 
 import com.hust.schoolmanagementapi.entity.enums.AdminType;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
 @Entity
-@Builder
-@Getter
+@SuperBuilder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "admins")
 public class Admin extends User {
     @Enumerated(value = EnumType.STRING)

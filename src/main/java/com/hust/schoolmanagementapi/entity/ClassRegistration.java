@@ -1,11 +1,15 @@
 package com.hust.schoolmanagementapi.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "class_registrations")
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class ClassRegistration {
     @Id
